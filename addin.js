@@ -249,3 +249,4 @@ function hideStatus() {
     const statusEl = document.getElementById("status");
     statusEl.style.display = "none";
 }
+
