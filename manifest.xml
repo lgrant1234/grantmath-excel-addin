@@ -94,7 +94,7 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://grantmath.com/docs"/>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/index.html"/>
         <bt:Url id="Taskpane.Url" DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/index.html"/>
       </bt:Urls>
       <bt:ShortStrings>
