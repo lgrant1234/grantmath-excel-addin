@@ -51,11 +51,6 @@ function saveApiKey() {
         return;
     }
 
-    if (!apiKey.startsWith("sk-")) {
-        showStatus("API key should start with 'sk-'", "error");
-        return;
-    }
-
     localStorage.setItem("grantmath_api_key", apiKey);
     updateKeyIndicator();
     updateSolveButtonState();
@@ -72,7 +67,7 @@ function updateKeyIndicator() {
     const apiKey = document.getElementById("api-key").value.trim();
     const indicator = document.getElementById("key-indicator");
 
-    if (apiKey && apiKey.startsWith("sk-")) {
+    if (apiKey && apiKey.length > 0) {
         indicator.classList.add("active");
     } else {
         indicator.classList.remove("active");
@@ -85,26 +80,16 @@ function updateKeyIndicator() {
  * Enable/disable solve button based on API key presence
  */
 function updateSolveButtonState() {
-    const apiKey = localStorage.getItem("grantmath_api_key");
     const solveBtn = document.getElementById("solve-btn");
-
-    if (apiKey && apiKey.startsWith("sk-")) {
-        solveBtn.disabled = false;
-    } else {
-        solveBtn.disabled = true;
-    }
+    // Always enable the solve button (API is currently public)
+    solveBtn.disabled = false;
 }
 
 /**
  * Solve mathematical question from selected cell
  */
 async function solveCell() {
-    const apiKey = localStorage.getItem("grantmath_api_key");
-
-    if (!apiKey) {
-        showStatus("Please save your API key first", "error");
-        return;
-    }
+    const apiKey = localStorage.getItem("grantmath_api_key") || "";
 
     try {
         await Excel.run(async (context) => {
@@ -125,13 +110,20 @@ async function solveCell() {
             showStatus("Computing solution...", "loading");
             document.getElementById("solve-btn").disabled = true;
 
+            // Build headers
+            const headers = {
+                "Content-Type": "application/json"
+            };
+
+            // Add authorization if API key exists
+            if (apiKey) {
+                headers["Authorization"] = `Bearer ${apiKey}`;
+            }
+
             // Call GrantMath API
             const response = await fetch(API_URL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`
-                },
+                headers: headers,
                 body: JSON.stringify({
                     question: question.toString()
                 })
