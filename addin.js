@@ -194,11 +194,11 @@ function stripHtmlTags(html) {
     let text = html.replace(/<script[^>]*>.*?<\/script>/gi, "");
     text = text.replace(/<style[^>]*>.*?<\/style>/gi, "");
 
-    // Convert headers to text with separators
-    text = text.replace(/<h[1-6][^>]*>(.*?)<\/h[1-6]>/gi, "\n\n$1\n" + "=".repeat(50) + "\n");
+    // Convert headers to text with separators (more compact)
+    text = text.replace(/<h[1-6][^>]*>(.*?)<\/h[1-6]>/gi, "\n$1\n" + "=".repeat(40) + "\n");
 
-    // Convert paragraphs and divs to newlines
-    text = text.replace(/<\/?p[^>]*>/gi, "\n\n");
+    // Convert paragraphs and divs to single newlines
+    text = text.replace(/<\/?p[^>]*>/gi, "\n");
     text = text.replace(/<\/?div[^>]*>/gi, "\n");
 
     // Convert line breaks
@@ -216,10 +216,10 @@ function stripHtmlTags(html) {
     textarea.innerHTML = text;
     text = textarea.value;
 
-    // Clean up whitespace
+    // Clean up whitespace (more aggressive)
     text = text.replace(/ +/g, " "); // Multiple spaces to single space
-    text = text.replace(/\n\n\n+/g, "\n\n"); // Multiple newlines to double newline
-    text = text.split("\n").map(line => line.trim()).join("\n"); // Trim each line
+    text = text.replace(/\n\n+/g, "\n"); // Multiple newlines to single newline
+    text = text.split("\n").map(line => line.trim()).filter(line => line.length > 0).join("\n"); // Trim and remove empty lines
 
     return text.trim();
 }
