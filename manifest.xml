@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp">
+
+  <!-- Basic Settings -->
+  <Id>2c7e5e9d-8f3a-4b2c-9d1e-6f4a8b3c7e2d</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>SolonAI</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+
+  <!-- Display Name -->
+  <DisplayName DefaultValue="GrantMath"/>
+  <Description DefaultValue="PhD-level computational reasoning for Excel. Solve LBO analysis, derivatives, integrals, physics equations, and advanced mathematics using natural language."/>
+
+  <!-- Icon URLs (using placeholder - replace with actual hosted icons) -->
+  <IconUrl DefaultValue="https://grantmath.com/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://grantmath.com/assets/icon-64.png"/>
+
+  <!-- Support and Help URLs -->
+  <SupportUrl DefaultValue="https://grantmath.com/support"/>
+
+  <!-- Hosts -->
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+
+  <!-- Default Settings -->
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://grantmath.com/excel-addin/index.html"/>
+  </DefaultSettings>
+
+  <!-- Permissions -->
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <!-- App Domains (allow API calls to your domain) -->
+  <AppDomains>
+    <AppDomain>https://api.grantmath.com</AppDomain>
+    <AppDomain>https://grantmath.com</AppDomain>
+  </AppDomains>
+
+  <!-- Version Overrides for Ribbon -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title"/>
+            <Description resid="GetStarted.Description"/>
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+
+          <!-- Ribbon Button -->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="GrantMathGroup">
+                <Label resid="GrantMath.GroupLabel"/>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16"/>
+                  <bt:Image size="32" resid="Icon.32x32"/>
+                  <bt:Image size="80" resid="Icon.80x80"/>
+                </Icon>
+
+                <Control xsi:type="Button" id="TaskpaneButton">
+                  <Label resid="TaskpaneButton.Label"/>
+                  <Supertip>
+                    <Title resid="TaskpaneButton.Label"/>
+                    <Description resid="TaskpaneButton.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <!-- Resources -->
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="https://grantmath.com/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://grantmath.com/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://grantmath.com/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://grantmath.com/docs"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://grantmath.com/excel-addin/index.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="Get started with GrantMath"/>
+        <bt:String id="GrantMath.GroupLabel" DefaultValue="GrantMath"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="GrantMath"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description" DefaultValue="PhD-level computational reasoning for Excel"/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Open GrantMath solver"/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
