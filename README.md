@@ -21,3 +21,4 @@ After deployment, download `manifest.xml` and upload to Excel.
 2. Excel → Insert → Get Add-ins → Upload My Add-in
 3. Upload manifest.xml
 4. Click GrantMath button in ribbon
+
