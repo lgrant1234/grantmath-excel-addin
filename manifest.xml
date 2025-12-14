@@ -16,8 +16,8 @@
   <Description DefaultValue="PhD-level computational reasoning for Excel. Solve LBO analysis, derivatives, integrals, physics equations, and advanced mathematics using natural language."/>
 
   <!-- Icon URLs -->
-  <IconUrl DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/icon-64.png"/>
+  <IconUrl DefaultValue="https://grantmath-excel-addin-24vg.vercel.app/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://grantmath-excel-addin-24vg.vercel.app/icon-64.png"/>
 
   <!-- Support and Help URLs -->
   <SupportUrl DefaultValue="https://grantmath.com/support"/>
@@ -29,7 +29,7 @@
 
   <!-- Default Settings -->
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/index.html"/>
+    <SourceLocation DefaultValue="https://grantmath-excel-addin-24vg.vercel.app/index.html"/>
   </DefaultSettings>
 
   <!-- Permissions -->
@@ -38,7 +38,7 @@
   <!-- App Domains (allow API calls to your domain) -->
   <AppDomains>
     <AppDomain>https://api.grantmath.com</AppDomain>
-    <AppDomain>https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app</AppDomain>
+    <AppDomain>https://grantmath-excel-addin-24vg.vercel.app</AppDomain>
   </AppDomains>
 
   <!-- Version Overrides for Ribbon -->
@@ -89,13 +89,13 @@
     <!-- Resources -->
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://grantmath-excel-addin-24vg.vercel.app/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://grantmath-excel-addin-24vg.vercel.app/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://grantmath-excel-addin-24vg.vercel.app/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/index.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://grantmath-excel-addin-4qrmfo3iq-atlas10.vercel.app/index.html"/>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://grantmath-excel-addin-24vg.vercel.app/index.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://grantmath-excel-addin-24vg.vercel.app/index.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with GrantMath"/>
