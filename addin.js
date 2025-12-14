@@ -221,6 +221,9 @@ function stripHtmlTags(html) {
     text = text.replace(/\n\n+/g, "\n"); // Multiple newlines to single newline
     text = text.split("\n").map(line => line.trim()).filter(line => line.length > 0).join("\n"); // Trim and remove empty lines
 
+    // Add blank line before disclaimer for visual separation
+    text = text.replace(/(\*\*Disclaimer:\*\*)/g, "\n$1");
+
     return text.trim();
 }
 
